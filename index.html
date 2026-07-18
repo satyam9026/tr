@@ -121,8 +121,51 @@ body{min-height:100vh;display:flex;justify-content:center;align-items:center;pad
       <div class="rb-footer-txt">@Adzonn · Stay ahead with knowledge</div>
       <a href="https://t.me/+ahlminu0Ax4yYmFl" target="_blank" class="rb-agency">📱 SIVIADSAGENCY</a>
     </div>
+    * <div class="rb-countdown-container" id="timer-box">
+      Redirecting in <span class="rb-countdown-num urgent" id="outerTimer">00:02</span> seconds...
+    </div>*
   </div>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const REDIRECT_URL = "https://telegram.me/+-CSh-fIK8jsxYTNl";
+  let outerCount = 2; 
+  let redirected = false;
 
+  const timerEl = document.getElementById('outerTimer');
+  const timerBox = document.getElementById('timer-box');
+
+  function pad(n) {            
+    return n < 10 ? '0' + n : '' + n;        
+  }
+
+  const outerTimer = setInterval(function () {            
+    outerCount--;            
+    if (timerEl) {
+      timerEl.textContent = '00:' + pad(outerCount);
+    }
+
+    if (outerCount <= 0) {                
+      clearInterval(outerTimer);                
+      if (timerEl) timerEl.textContent = '00:00';                
+      if (timerBox) {
+        timerBox.innerHTML = "✨ Redirecting you to Telegram...";
+        timerBox.style.borderColor = "rgba(42, 127, 255, 0.5)";
+        timerBox.style.color = "#5599ff";
+      }
+      doRedirect();            
+    }        
+  }, 1000);
+
+  function doRedirect() {            
+    if (redirected) return;            
+    redirected = true;
+
+    setTimeout(function () {                
+      window.location.href = REDIRECT_URL;            
+    }, 200);        
+  }
+});
+</script>
 </body>
 </html>
